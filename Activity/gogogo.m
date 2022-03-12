@@ -1,0 +1,1 @@
+[ map_oc1 ] = oceanpeoplegpu( mapdata, 250000, 250000, 100, 0.5, Rmask, Omask );

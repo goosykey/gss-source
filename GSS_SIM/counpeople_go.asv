@@ -1,0 +1,17 @@
+[ map, mapdata ] = readmap( 'glp15ag.asc' );    % read population density map
+jd0 = astro.jday(2018,3,20,12,0,0);
+STEP = 10;
+
+deg = pi/180;
+
+a = R0+alt; e = 0; om = 0; in = astro.sunsyn(alt)*deg; % specify initial orbit parameters
+Om = 0*deg; u = 0*deg;
+
+ini0 = [a e om Om in u];
+eph0 = astro.J2pert(ini0,86400,STEP);
+
+t = eph0(:,1); lt = length(t);
+eph0 = eph0(:,2:7);
+
+jt = jd0 + t/86400;
+
